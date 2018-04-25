@@ -7,6 +7,7 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.util.Log;
 
 public class RBStringInjector extends CordovaPlugin
 {
@@ -55,6 +56,8 @@ public class RBStringInjector extends CordovaPlugin
             } else {
                 res = injectables.get(key);
             }
+            
+            Log.w("rosterbot - stringinjector", key+" : "+res);
         }
         return res;
     }
