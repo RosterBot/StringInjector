@@ -47,26 +47,12 @@ public class RBStringInjector extends CordovaPlugin
     private String get(String key)
     {
         String res = "";
-        Log.w("rosterbot - stringinjector - key", key);
-
         if (key.length() > 0)
         {
-            if(key.equals("oAuthClientId")) {
-                int appResId = this.cordova.getActivity().getResources().getIdentifier("oauthclientid", "string", this.cordova.getActivity().getPackageName());
-                res = this.cordova.getActivity().getString(appResId);
-
-                Log.w("rosterbot - preference", key+" : "+res);
-            } else if(key.equals("oAuthClientSecret")) {
-                int appResId = this.cordova.getActivity().getResources().getIdentifier("oauthclientsecret", "string", this.cordova.getActivity().getPackageName());
-                res = this.cordova.getActivity().getString(appResId);
-
-                Log.w("rosterbot - preference", key+" : "+res);
-            } else {
-                res = injectables.get(key);
-            }
-
-            Log.w("rosterbot - stringinjector", key+" : "+res);
+            res = preferences.getString(key, "");
         }
+
+        Log.w("rosterbot - stringinjector", key+" : "+res);
         return res;
     }
 }
