@@ -49,7 +49,7 @@ public class RBStringInjector extends CordovaPlugin
         String res = "";
         if (key.length() > 0)
         {
-            res = preferences.getString(key, "");
+            res = preferences.getString(key.toLowerCase(), "");
         }
 
         Log.w("rosterbot - stringinjector", key+" : "+res);
