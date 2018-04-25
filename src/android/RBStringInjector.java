@@ -49,10 +49,10 @@ public class RBStringInjector extends CordovaPlugin
         String res = "";
         if (key.length() > 0)
         {
-            if(key=="oAuthClientId") {
+            if(key.equals("oAuthClientId")) {
                 res = this.cordova.getActivity().getIntent().getStringExtra("oauthclientid");
                 Log.w("rosterbot - preference", key+" : "+res);
-            } else if(key=="oAuthClientSecret") {
+            } else if(key.equals("oAuthClientSecret")) {
                 res = this.cordova.getActivity().getIntent().getStringExtra("oauthclientsecret");
                 Log.w("rosterbot - preference", key+" : "+res);
             } else {
